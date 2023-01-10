@@ -24,6 +24,7 @@ const capacity = computed(() => {
     
     return _capacity
 })
+
 const occupied = computed(() => {
     let _occupied = 0
     hotel.value.forEach( room => {
@@ -190,41 +191,11 @@ function dropEmployee(evt: any, roomId: number, bedId: number) {
     const _memberName = evt.dataTransfer.getData('member')
 
     setEmployeeInHotel(_memberId, _memberName, roomId, bedId)
-
-    // const _sleeper = getSleeper(roomId, bedId)
-    // let _isEmployeeAllocated = false
-    // const _isBedAllocated = _sleeper ? true : false 
-
-    // if (_isBedAllocated) {
-    //     console.log('Go out:', hotel.value[roomId].sleepers[bedId])
-    //     store.dispatch('allocateSleeper',{name: hotel.value[roomId].sleepers[bedId], shouldAllocate: false})
-
-    //     if (_sleeper === _memberName) {
-    //         store.dispatch('setSleeper',{roomId,bedId,name:''})
-    //         return
-    //     }
-    // }
-
-    // hotel.value.forEach( room => {
-    //     room.sleepers.forEach( sleeper => {
-    //         if (sleeper === _memberName) {
-    //             alert('Already allocated!')
-                
-    //             _isEmployeeAllocated = true
-    //         }
-    //     })
-    // })
-
-    // if (!_isEmployeeAllocated) {
-    //     store.dispatch('setSleeper',{roomId,bedId,name:_memberName})
-    //     store.dispatch('allocateSleeper',{name: _memberName, shouldAllocate: true})
-    // }
 }
 
 onMounted(() => {
     console.log('Hotel started ...')
     // console.log('%cSTARTED:', 'color: white;background-color:red;font-size:14px;', new Date().toDateString())
-    
 })
 </script>
 

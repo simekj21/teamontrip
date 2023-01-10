@@ -3,7 +3,6 @@ import { unref, ref, onMounted, computed } from 'vue'
 import { useStore } from 'vuex'
 
 const props = defineProps(['name'])
-
 const store = useStore()
 const flotila = computed(() => store.state.trip.flotila)
 const team = computed(() => store.state.trip.team)
@@ -60,10 +59,9 @@ function getSeat(carId, seatId) {
 function dropEmployeeToFlotila(evt: any, carId: number, seatId: number) {
     const _memberId = evt.dataTransfer.getData('memberId')
     const _memberName = evt.dataTransfer.getData('member')
-
     const _seat = getSeat(carId, seatId)
-    let _isEmployeeAllocated = false
     const _isSeatAllocated = _seat ? true : false 
+    let _isEmployeeAllocated = false
 
     if (_isSeatAllocated) {
         console.log('Go out:', )
@@ -93,10 +91,6 @@ function dropEmployeeToFlotila(evt: any, carId: number, seatId: number) {
 
 onMounted(() => {
     console.log('Flotila started ...')
-
-    console.log(flotila.value[0])
-
-    // store.state.trip.flotila[0].seats[0] = "John Driver"
 })
 
 </script>

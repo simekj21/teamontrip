@@ -1,5 +1,4 @@
 <script setup lang="ts">
-
 import { onMounted, ref, unref, computed, onBeforeMount } from 'vue'
 import { useStore } from 'vuex'
 import Hotel from './components/Hotel.vue'
@@ -8,18 +7,15 @@ import Flotila from './components/Flotila.vue';
 
 const store = useStore()  
 const trip = computed(() => store.state.trip)
-
 const setTrip = (trip) => store.dispatch('setTrip', trip)
 
 const memberName = ref('')
-
 const moduleShowConfig = ref({
   team: true,
   hotel: true,
   flotila: true,
   import: false,
 })
-
 const exportelm = ref(null)
 const importelm = ref(null)
 const importedTrip = ref(null)
@@ -30,8 +26,6 @@ function saveTrip() {
 }
 
 function exportTrip() {
-  // moduleShowConfig.value.export = !moduleShowConfig.value.export
-
   exportelm.value.select()
   navigator.clipboard.writeText(exportelm.value.value)
   alert('Export: Ctrl-V ziskate data')
@@ -124,7 +118,6 @@ onBeforeMount(() => {
 </script>
 
 <template>
-
 <div class="overflow-scroll flex flex-col">
 
   <div class="select-none hover:animate-pulse p-4 text-4xl text-white font-bold bg-gradient-to-r via-purple-500 from-cyan-500 to-blue-500">
@@ -177,7 +170,6 @@ onBeforeMount(() => {
       </div>
         
       <div class="flex flex-row gap-2">
-
         <div>
           <svg 
           style="width:40px;height:40px" 
@@ -207,12 +199,10 @@ onBeforeMount(() => {
             <path fill="currentColor" d="M19 3H18V1H16V3H8V1H6V3H5C3.9 3 3 3.9 3 5V19C3 20.1 3.9 21 5 21H8L6 19H5V9H19V19H18L16 21H19C20.1 21 21 20.1 21 19V5C21 3.9 20.1 3 19 3M5 7V5H19V7H5M13 18V12H11V18H8L12 22L16 18H13Z" />
           </svg>
         </div>
-  
       </div>
 
     </div>
   </div>
-    
 
   <div class="flex flex-col md:flex-row gap-4">
     <members 
@@ -231,11 +221,9 @@ onBeforeMount(() => {
   </div> 
 
 </div>
-
 </template>
 
 <style>
-
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;

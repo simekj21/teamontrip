@@ -4,11 +4,10 @@ import { useStore } from 'vuex'
 import Icon from './Icon.vue'
 
 const emit = defineEmits(['focus-member'])
-
 const store = useStore()
-const team = computed(() => store.state.trip.team)
-
 const selectedMember = ref('')
+
+const team = computed(() => store.state.trip.team)
 
 function focusMember(name) {
   
@@ -37,7 +36,6 @@ function delMember() {
     store.dispatch('delMember', selectedMember.value)
     selectedMember.value = ''
   }
-
 }
 
 function startDrag(evt: any, memberId: number, memberName: string) {
@@ -45,7 +43,6 @@ function startDrag(evt: any, memberId: number, memberName: string) {
   evt.dataTransfer.effectAllowed = 'move'
   evt.dataTransfer.setData('memberId', memberId)
   evt.dataTransfer.setData('member', memberName)
-  
   // console.log('Start drag ...', evt)
 }
 
