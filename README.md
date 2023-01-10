@@ -1,4 +1,5 @@
 # TEAM ON TRIP
+DEMO: teamontrip.fotopulse.cz
 
 Vue 3 + TypeScript + Vite
 >Desktop version
